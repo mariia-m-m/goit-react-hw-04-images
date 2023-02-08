@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from '../styles.module.css';
 
 const Searchbar = ({ onSubmit }) => {
-  const [search, setSearch] = useState({ search: '' });
+  const [search, setSearch] = useState('');
 
-  const handleChage = event => {
+  const handleChage = useCallback(event => {
     const { value } = event.target;
     setSearch(value);
-  };
+  }, []);
 
   const handleSubmit = event => {
     event.preventDefault();
